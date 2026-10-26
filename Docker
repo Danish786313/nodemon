@@ -1,1 +1,13 @@
 1. install docker cli and docker desktop
+
+
+run image 
+
+commands
+docker run -it ubuntu
+docker container ls
+docker container ls -a
+docker start <conatainer_name>
+docker stop <container_name>
+docker exec -it <container_name>
+docker exec -it <container_name> <command>

@@ -1,67 +1,48 @@
-// const s = "0P";
-// /**
-//  * @param {number[]} nums
-//  * @return {number}
-//  */
 
-// const nums = [-1]
-// var maxSubArray = function(nums) {
-//     let count = 0;
-//     let length = nums.length - 1;
-//     let minlength = nums.length - 1;
-//     let maxlength = nums.length - 1;
-//     let max = 100;
-//     for (let j=0; j<= length; j++){
-//         let min =  length-minlength;
-//         for (let i = min; i <= maxlength; i++) {
-//             count = nums[i] + count
-//         }
-//         minlength--;
-//         j > 0 ? maxlength-- : null;
-//         console.log(count)
-//         max = count > max? count: max;
-//         count = 0;
-//     }
-//     return max
-// };
+// Create 1: Insert at the end
+const nums = [1,2,3,11];
+nums[nums.length] = 10;
+console.log("nums", nums)
 
-// console.log(maxSubArray(nums ))
-
-
-// ==============================================================================================
-
-// Function to check whether any pair exists
-// whose sum is equal to the given target value
-function twoSum(arr, target)
-{
-    // Sort the array
-    let left = 0, right = arr.length - 1;
-    // Iterate while left pointer is less than right
-    while (left < right) {
-            left++;
-            right--;
+// Create 2: Insert at the beginning
+function unshift(nums, new1) {
+    const temp = []
+    temp[0] = new1;
+    for (let i=0; i<= nums.length-1; i++) {
+        temp[i+1] = nums[i]
     }
-    // If no pair is found
-    return false;
+    return nums
+}
+console.log(unshift(nums, 9), "=====", nums) // but why base array is unchanged
+
+
+// Create 3: Insert at a specific index
+function insertSpecificIndex(nums, val, index) {
+    let temp = [];
+    const length = nums.length-1;
+    for (let i=0; i<= length+1; i++) {
+        if (index < i) {
+            nums[i] =  nums[i-1];
+            continue;
+        }
+        if (index === i) {
+            nums[i]=val;
+            continue;
+        }
+        nums[i] =nums[i]
+    }
+    return nums
 }
 
-let arr = [ 1, 1, 0, 1, 2, 1, 1, 0, 1, 2, 1, 1, 0, 1, 2 ];
-let target = 2;
-
-// Call the twoSum function and print the result
-if (twoSum(arr, target)) {
-    console.log("true");
-} else {
-    console.log("false");
-}
+let val = 'mid';
+let index = 5;
+console.log(insertSpecificIndex(nums, val, index), "---", nums)
 
 
+// Create 4: Handle insertion boundaries
+// i did not get the problem
 
-
-
-
-
-
-
-
-
+let arr = []
+arr[1000000000000] = 5
+arr[100000] =9
+console.log("arr", arr[100000], arr)
